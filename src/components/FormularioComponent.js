@@ -20,6 +20,13 @@ export const FormularioComponent = () => {
         setUsuario(usuario);
     }
     
+    const cambiarDatos = e => {
+        let name_del_input = e.target.name;
+        let usuario_para_modificar = usuario;
+
+        console.log(usuario_para_modificar)
+    }
+
   return (
     <div>
         <h1>Formularios con react</h1>
@@ -32,14 +39,14 @@ export const FormularioComponent = () => {
         }
 
         <form onSubmit={conseguirDatosFormulario}>
-            <input type='text' placeholder='Nombre' name='nombre'/>
-            <input type='text' placeholder='Apellido' name='apellido'/>
-            <select name='genero'>
+            <input type='text' placeholder='Nombre' name='nombre' onChange={cambiarDatos}/>
+            <input type='text' placeholder='Apellido' name='apellido' onChange={cambiarDatos}/>
+            <select name='genero' onChange={cambiarDatos}>
                 <option value="hombre">Hombre</option>
                 <option value="mujer">Mujer</option>
             </select>
 
-            <textarea placeholder='Biografia' name='bio'></textarea>
+            <textarea placeholder='Biografia' name='bio' onChange={cambiarDatos} ></textarea>
 
             <input type='submit' value="Enviar"></input>
         </form>
